@@ -50,9 +50,9 @@ export function Navigation() {
               <Image
                 src={TEAM_INFO.logo || "/placeholder.svg"}
                 alt={`${TEAM_INFO.name} Logo`}
-                width={40}
-                height={40}
-                className="transition-transform duration-300 group-hover:scale-110 animate-glow"
+                width={48}
+                height={48}
+                className="relative drop-shadow-2xl group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="flex flex-col">
@@ -79,9 +79,6 @@ export function Navigation() {
                     >
                       {Icon && <Icon className="w-4 h-4 mr-2" />}
                       {item.label}
-                      {isActive && (
-                        <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary rounded-full animate-pulse-green" />
-                      )}
                     </Button>
                   </Link>
                 )
@@ -109,9 +106,9 @@ export function Navigation() {
                         <Image
                           src={TEAM_INFO.logo || "/placeholder.svg"}
                           alt={`${TEAM_INFO.name} Logo`}
-                          width={32}
-                          height={32}
-                          className="animate-glow"
+                          width={40}
+                          height={40}
+                          className="relative drop-shadow-2xl"
                         />
                         <div className="flex flex-col">
                           <span className="font-bold text-gradient">CEBULARZE</span>

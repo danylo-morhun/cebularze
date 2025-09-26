@@ -61,11 +61,14 @@ export const NAVIGATION_ITEMS = [
   { href: "/roster", label: "Skład" },
   { href: "/schedule", label: "Terminarz" },
   { href: "/juniors", label: "Szczypiorki" },
-  { href: "/apply", label: "Dołącz do nas" }, // Added application link to navigation
   { href: "/news", label: "Aktualności" },
+  { href: "/contact", label: "Kontakt" },
+] as const
+
+export const FOOTER_NAVIGATION_ITEMS = [
+  { href: "/apply", label: "Dołącz do nas" },
   { href: "/gallery", label: "Galeria" },
   { href: "/about", label: "O klubie" },
-  { href: "/contact", label: "Kontakt" },
 ] as const
 
 export const POSITIONS = {

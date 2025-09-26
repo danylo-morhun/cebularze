@@ -3,7 +3,7 @@ import Link from "next/link"
 import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
-import { TEAM_INFO, CONTACT_INFO, NAVIGATION_ITEMS } from "@/lib/constants"
+import { TEAM_INFO, CONTACT_INFO, NAVIGATION_ITEMS, FOOTER_NAVIGATION_ITEMS } from "@/lib/constants"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -17,9 +17,9 @@ export function Footer() {
               <Image
                 src={TEAM_INFO.logo || "/placeholder.svg"}
                 alt={`${TEAM_INFO.name} Logo`}
-                width={40}
-                height={40}
-                className="animate-glow"
+                width={48}
+                height={48}
+                className="relative drop-shadow-2xl"
               />
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-gradient">CEBULARZE</span>
@@ -33,7 +33,17 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-4">Szybkie linki</h4>
             <ul className="space-y-2">
-              {NAVIGATION_ITEMS.slice(0, 5).map((item) => (
+              {NAVIGATION_ITEMS.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              {FOOTER_NAVIGATION_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
