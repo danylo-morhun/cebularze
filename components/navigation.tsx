@@ -6,7 +6,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Home, Users, Calendar, Newspaper, Camera, Info, Phone, Trophy, UserPlus } from "lucide-react"
+import { Menu, Home, Users, Calendar, Newspaper, Camera, Info, Phone, Trophy, Baby } from "lucide-react"
 import { NAVIGATION_ITEMS, TEAM_INFO } from "@/lib/constants"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -27,7 +27,7 @@ export function Navigation() {
     "/": Home,
     "/roster": Users,
     "/schedule": Calendar,
-    "/juniors": UserPlus,
+    "/juniors": Baby,
     "/apply": Trophy,
     "/news": Newspaper,
     "/gallery": Camera,
@@ -46,7 +46,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative">
+            <div className="logo-glow logo-glow-light">
               <Image
                 src={TEAM_INFO.logo || "/placeholder.svg"}
                 alt={`${TEAM_INFO.name} Logo`}
@@ -87,6 +87,14 @@ export function Navigation() {
           </div>
 
           <div className="flex items-center space-x-2">
+            <Link href="/apply">
+              <Button 
+                size="sm" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                Zapisz się
+              </Button>
+            </Link>
             <ThemeToggle />
 
             {/* Mobile menu */}
@@ -103,13 +111,15 @@ export function Navigation() {
                     {/* Mobile header */}
                     <div className="flex items-center justify-between p-4 sm:p-6 border-b border-border">
                       <div className="flex items-center space-x-3">
-                        <Image
-                          src={TEAM_INFO.logo || "/placeholder.svg"}
-                          alt={`${TEAM_INFO.name} Logo`}
-                          width={40}
-                          height={40}
-                          className="relative drop-shadow-2xl"
-                        />
+                        <div className="logo-glow logo-glow-light">
+                          <Image
+                            src={TEAM_INFO.logo || "/placeholder.svg"}
+                            alt={`${TEAM_INFO.name} Logo`}
+                            width={40}
+                            height={40}
+                            className="relative drop-shadow-2xl"
+                          />
+                        </div>
                         <div className="flex flex-col">
                           <span className="font-bold text-gradient">CEBULARZE</span>
                           <span className="text-xs text-muted-foreground">KALISZ</span>
@@ -142,7 +152,14 @@ export function Navigation() {
                     </div>
 
                     {/* Mobile footer */}
-                    <div className="p-4 sm:p-6 border-t border-border">
+                    <div className="p-4 sm:p-6 border-t border-border space-y-4">
+                      <Link href="/apply" onClick={() => setIsOpen(false)}>
+                        <Button 
+                          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                        >
+                          Zapisz się
+                        </Button>
+                      </Link>
                       <p className="text-sm text-muted-foreground text-center">{TEAM_INFO.motto}</p>
                     </div>
                   </div>

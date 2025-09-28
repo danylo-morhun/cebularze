@@ -14,13 +14,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
-              <Image
-                src={TEAM_INFO.logo || "/placeholder.svg"}
-                alt={`${TEAM_INFO.name} Logo`}
-                width={48}
-                height={48}
-                className="relative drop-shadow-2xl"
-              />
+              <div className="logo-glow logo-glow-light">
+                <Image
+                  src={TEAM_INFO.logo || "/placeholder.svg"}
+                  alt={`${TEAM_INFO.name} Logo`}
+                  width={48}
+                  height={48}
+                  className="relative drop-shadow-2xl"
+                />
+              </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-gradient">CEBULARZE</span>
                 <span className="text-sm text-muted-foreground">KALISZ</span>

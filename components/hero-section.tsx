@@ -9,8 +9,11 @@ export function HeroSection() {
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
-      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl animate-pulse delay-1000" />
+      <div className="hero-bg-glow hero-bg-glow-light dark:hero-bg-glow-dark top-20 left-10 w-32 h-32" />
+      <div className="hero-bg-glow hero-bg-glow-light dark:hero-bg-glow-dark bottom-20 right-10 w-48 h-48" style={{animationDelay: '1s'}} />
+      {/* Additional background elements for light theme visibility */}
+      <div className="hero-bg-glow hero-bg-glow-light dark:hero-bg-glow-dark top-1/2 left-1/4 w-24 h-24" style={{animationDelay: '0.5s'}} />
+      <div className="hero-bg-glow hero-bg-glow-light dark:hero-bg-glow-dark bottom-1/3 left-1/3 w-36 h-36" style={{animationDelay: '1.5s'}} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -44,14 +47,13 @@ export function HeroSection() {
 
           {/* Right Content - Logo */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl animate-pulse" />
+            <div className="logo-glow logo-glow-light group">
               <Image
                 src="/logo.png"
                 alt="Cebularze Logo"
                 width={400}
                 height={400}
-                className="relative animate-float drop-shadow-2xl"
+                className="relative animate-float drop-shadow-2xl group-hover:scale-105 group-hover:rotate-3 transition-all duration-500 ease-out"
                 priority
               />
             </div>
