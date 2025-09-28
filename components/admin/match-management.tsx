@@ -89,7 +89,7 @@ export function MatchManagement() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="venue">Miejsce</Label>
-                    <Input id="venue" placeholder="Lodowisko Miejskie w Kaliszu" />
+                    <Input id="venue" placeholder="Lodowisko Kalisz" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="competition">Rozgrywki</Label>

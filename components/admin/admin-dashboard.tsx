@@ -130,29 +130,19 @@ export function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="border-b bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">Panel Administracyjny</h1>
-              <p className="text-muted-foreground mt-2">Zarządzanie klubem Cebularze Kalisz</p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Button variant="outline" size="sm">
-                <Settings className="w-4 h-4 mr-2" />
-                Ustawienia
-              </Button>
-              <Button size="sm">
-                <BarChart3 className="w-4 h-4 mr-2" />
-                Raporty
-              </Button>
-            </div>
-          </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center space-x-2">
+          <Button variant="outline" size="sm">
+            <Settings className="w-4 h-4 mr-2" />
+            Ustawienia
+          </Button>
+          <Button size="sm">
+            <BarChart3 className="w-4 h-4 mr-2" />
+            Raporty
+          </Button>
         </div>
       </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
           <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="overview" className="flex items-center space-x-2">
@@ -330,7 +320,6 @@ export function AdminDashboard() {
             <ApplicationManagement applications={mockApplications} />
           </TabsContent>
         </Tabs>
-      </div>
     </div>
   )
 }
