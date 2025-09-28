@@ -62,7 +62,7 @@ const trainingSchedule = [
   { day: "Poniedziałek", time: "17:00-18:30", type: "Trening techniczny" },
   { day: "Środa", time: "17:00-18:30", type: "Gra zespołowa" },
   { day: "Piątek", time: "17:00-18:30", type: "Kondycja i technika" },
-  { day: "Sobota", time: "10:00-11:30", type: "Mecze/Sparingi" },
+  { day: "Sobota", time: "10:00-11:30", type: "Trening" },
 ]
 
 export function DevelopmentProgram() {
@@ -76,18 +76,17 @@ export function DevelopmentProgram() {
           className="text-center mb-16"
         >
           <Badge variant="secondary" className="mb-4 bg-orange-500/20 text-orange-600 border-orange-500/30">
-            Program rozwoju
+            Zapisz się na treningi
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Kompleksowy{" "}
+            Zapisz się na{" "}
             <span className="text-gradient bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">
-              rozwój
+              treningi
             </span>{" "}
-            młodych talentów
+            z naszymi trenerami
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto text-pretty">
-            Nasz program rozwoju koncentruje się na wszechstronnym kształceniu młodych hokejistów - od podstaw
-            technicznych po mentalność zwycięzcy
+            Dołącz do naszych treningów i rozwijaj swoje umiejętności hokejowe pod okiem doświadczonych trenerów
           </p>
         </motion.div>
 

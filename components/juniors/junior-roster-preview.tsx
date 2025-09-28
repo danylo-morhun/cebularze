@@ -97,7 +97,7 @@ export function JuniorRosterPreview() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-0 bg-gradient-to-b from-background to-orange-500/5">
+              <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-background to-orange-500/5">
                 <CardContent className="p-0">
                   <div className="relative">
                     <Image

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Users, Trophy, Target, Star } from "lucide-react"
@@ -85,17 +86,19 @@ export function JuniorHeroSection() {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
             >
-              <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
-                <Users className="w-5 h-5 mr-2" />
-                Zobacz skład
-              </Button>
+              <Link href="/juniors/roster">
+                <Button size="lg" className="bg-orange-500 hover:bg-orange-600 text-white">
+                  <Users className="w-5 h-5 mr-2" />
+                  Zobacz skład
+                </Button>
+              </Link>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-yellow-500/30 hover:bg-yellow-500/10 bg-transparent"
               >
                 <Trophy className="w-5 h-5 mr-2" />
-                Program rozwoju
+                Zapisz się na treningi
               </Button>
             </motion.div>
 
@@ -113,10 +116,6 @@ export function JuniorHeroSection() {
               <div className="text-center lg:text-left">
                 <div className="text-2xl font-bold text-yellow-500">8</div>
                 <div className="text-sm text-muted-foreground">Lat działania</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl font-bold text-green-500">15</div>
-                <div className="text-sm text-muted-foreground">Medali</div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-2xl font-bold text-orange-500">3</div>

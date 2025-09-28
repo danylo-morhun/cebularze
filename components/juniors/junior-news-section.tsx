@@ -14,45 +14,45 @@ import { pl } from "date-fns/locale"
 const juniorNews = [
   {
     id: "jn1",
-    title: "Szczypiorki wygrywają turniej w Poznaniu!",
+    title: "Nowy program treningowy dla młodych hokeistów",
     excerpt:
-      "Nasza drużyna juniorska zdobyła pierwsze miejsce w prestiżowym turnieju młodzieżowym, pokonując w finale drużynę z Gdańska 3-1.",
-    image: "/young-hockey-team-celebrating-victory.jpg",
+      "Wprowadzamy innowacyjny program treningowy skupiony na rozwoju techniki jazdy na łyżwach i umiejętności strzeleckich. Zajęcia odbywają się 3 razy w tygodniu.",
+    image: "/hockey-training-camp-mountains.jpg",
     date: new Date("2024-12-05T10:00:00"),
     author: "Trener Marek Kowalski",
-    category: "Mecze",
+    category: "Treningi",
     featured: true,
     readTime: 3,
   },
   {
     id: "jn2",
-    title: "Nowy talent w szeregach Szczypiorków",
-    excerpt: "15-letni Jakub Nowak dołączył do naszej drużyny. Młody napastnik ma już na koncie 12 goli w tym sezonie.",
+    title: "Zapisy na treningi w nowym sezonie",
+    excerpt: "Rozpoczynamy zapisy na treningi w sezonie 2025/26. Zapraszamy dzieci w wieku 12-16 lat. Zapewniamy sprzęt i profesjonalne szkolenie.",
     image: "/young-hockey-player-with-stick.jpg",
     date: new Date("2024-11-28T14:30:00"),
     author: "Anna Wiśniewska",
-    category: "Transfery",
+    category: "Zapisy",
     featured: false,
     readTime: 2,
   },
   {
     id: "jn3",
-    title: "Obóz treningowy w Zakopanem",
+    title: "Warsztaty z psychologii sportu dla rodziców",
     excerpt:
-      "Szczypiorki spędziły tydzień na intensywnych treningach w górach. Program obejmował nie tylko hokej, ale także zajęcia z psychologii sportu.",
-    image: "/hockey-training-camp-mountains.jpg",
+      "Organizujemy specjalne warsztaty dla rodziców młodych hokeistów. Dowiedz się, jak wspierać swoje dziecko w rozwoju sportowym i motywować do treningów.",
+    image: "/young-hockey-team-celebrating-victory.jpg",
     date: new Date("2024-11-20T09:00:00"),
     author: "Trener Piotr Dąbrowski",
-    category: "Treningi",
+    category: "Warsztaty",
     featured: false,
     readTime: 4,
   },
 ]
 
 const categoryIcons = {
-  Mecze: Trophy,
-  Transfery: Users,
   Treningi: Target,
+  Zapisy: Users,
+  Warsztaty: Calendar,
   Wydarzenia: Calendar,
 }
 
@@ -93,7 +93,7 @@ export function JuniorNewsSection() {
                 transition={{ delay: index * 0.1 }}
                 className={article.featured ? "lg:col-span-2" : ""}
               >
-                <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden border-0 bg-gradient-to-b from-background to-orange-500/5 h-full">
+                <Card className="group hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-background to-orange-500/5 h-full">
                   <CardContent className="p-0">
                     <div className="relative">
                       <Image
