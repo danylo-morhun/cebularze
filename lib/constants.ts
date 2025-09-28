@@ -20,7 +20,7 @@ export const JUNIOR_TEAM_INFO = {
   city: "Kalisz",
   country: "Polska",
   founded: 2015,
-  ageGroup: "U16",
+  ageGroup: "12-16",
   colors: {
     primary: "#f97316", // Orange
     secondary: "#eab308", // Yellow
@@ -46,8 +46,8 @@ export const CONTACT_INFO = {
     tiktok: "https://tiktok.com/@cebularze_kalisz",
   },
   arena: {
-    name: "Lodowisko Miejskie w Kaliszu",
-    address: "ul. Poznańska 126, 62-800 Kalisz",
+    name: "Lodowisko Kalisz",
+    address: "ul. Prymasa Stefana Wyszyńskiego 22-24, 62-800 Kalisz",
     capacity: 1200,
     coordinates: {
       lat: 51.7687,

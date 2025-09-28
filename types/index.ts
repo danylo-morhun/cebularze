@@ -60,7 +60,6 @@ export interface Match {
   venue: string
   status: "upcoming" | "live" | "finished" | "cancelled" | "postponed"
   competition: string
-  tickets?: string
   stream?: string
   referee?: string
   attendance?: number
@@ -176,7 +175,6 @@ export interface JuniorPlayer extends Omit<Player, "stats"> {
 }
 
 export interface JuniorPlayerStats {
-  gamesPlayed: number
   goals: number
   assists: number
   points: number
