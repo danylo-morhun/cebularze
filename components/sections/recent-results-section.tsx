@@ -76,11 +76,7 @@ export function RecentResultsSection() {
                     </div>
 
                     {/* Additional info */}
-                    {match.attendance && (
-                      <div className="text-center text-sm text-muted-foreground">
-                        Widzów: {match.attendance.toLocaleString()}
-                      </div>
-                    )}
+                    
                   </div>
                 </CardContent>
               </Card>

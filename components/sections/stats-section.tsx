@@ -60,7 +60,7 @@ export function StatsSection() {
     .filter((player) => player.position !== "GK")
     .map((player) => ({
       ...player,
-      totalPoints: player.goals + player.assists,
+      totalPoints: player.stats.goals + player.stats.assists,
     }))
     .sort((a, b) => b.totalPoints - a.totalPoints)
     .slice(0, 5)
@@ -70,7 +70,7 @@ export function StatsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Statystyki Sezonu</h2>
-          <p className="text-muted-foreground text-lg">Sezon 2024/25 - Aktualne wyniki</p>
+          <p className="text-muted-foreground text-lg">Sezon 2025/26 - Aktualne wyniki</p>
         </div>
 
         {/* Main stats grid */}
@@ -153,7 +153,7 @@ export function StatsSection() {
                   <div className="text-right">
                     <div className="font-bold text-primary">{player.totalPoints}</div>
                     <div className="text-xs text-muted-foreground">
-                      {player.goals}G + {player.assists}A
+                      {player.stats.goals}G + {player.stats.assists}A
                     </div>
                   </div>
                 </div>

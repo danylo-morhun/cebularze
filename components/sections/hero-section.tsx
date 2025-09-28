@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Calendar, Users, Trophy } from "lucide-react"
+import { ArrowRight, Calendar, Users, Trophy, Newspaper } from "lucide-react"
 import { TEAM_INFO } from "@/lib/constants"
 
 export function HeroSection() {
@@ -37,7 +37,7 @@ export function HeroSection() {
             <div className="space-y-4 lg:space-y-6">
               <div className="inline-flex items-center px-3 py-2 lg:px-4 lg:py-2 bg-primary/10 rounded-full text-xs lg:text-sm font-medium text-primary border border-primary/20">
                 <span className="w-2 h-2 bg-primary rounded-full mr-2 animate-pulse" />
-                Sezon 2024/25 - Aktualnie 3. miejsce w lidze
+                Sezon 2025/26 - Aktualnie 3. miejsce w lidze
               </div>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none">
@@ -54,36 +54,49 @@ export function HeroSection() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 sm:gap-4">
-              <Button asChild size="lg" className="group bg-primary hover:bg-primary/90 shadow-lg w-full sm:w-auto">
-                <Link href="/roster">
-                  <Users className="mr-2 h-5 w-5" />
-                  Poznaj Drużynę
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            <div className="flex flex-col gap-4 sm:gap-6">
+              {/* Main button */}
+              <Button asChild size="lg" className="group bg-primary hover:bg-primary/90 shadow-lg w-full sm:w-auto text-lg px-8 py-6">
+                <Link href="/apply">
+                  <Trophy className="mr-3 h-6 w-6" />
+                  Dołącz do drużyny
+                  <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              {/* Three buttons below */}
+              <div className="flex justify-between flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
                   asChild
                   size="lg"
                   variant="outline"
-                  className="group bg-transparent hover:bg-primary/10 w-full sm:w-auto"
+                  className="group bg-transparent hover:bg-primary/10 hover:text-primary w-full sm:w-auto"
                 >
                   <Link href="/schedule">
                     <Calendar className="mr-2 h-5 w-5" />
-                    Terminarz Meczów
+                    Terminarz gier
                   </Link>
                 </Button>
                 <Button
                   asChild
                   size="lg"
-                  variant="secondary"
-                  className="group bg-primary/20 hover:bg-primary/30 text-primary w-full sm:w-auto"
+                  variant="outline"
+                  className="group bg-transparent hover:bg-primary/10 hover:text-primary w-full sm:w-auto"
                 >
-                  <Link href="/apply">
-                    <Trophy className="mr-2 h-5 w-5" />
-                    Dołącz do Drużyny
+                  <Link href="/roster">
+                    <Users className="mr-2 h-5 w-5" />
+                    Poznaj drużynę
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="group bg-transparent hover:bg-primary/10 hover:text-primary w-full sm:w-auto"
+                >
+                  <Link href="/#news">
+                    <Newspaper className="mr-2 h-5 w-5" />
+                    Aktualności z klubu
                   </Link>
                 </Button>
               </div>

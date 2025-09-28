@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Calendar, MapPin, Clock, Ticket, Tv } from "lucide-react"
+import { Calendar, MapPin, Clock, Tv } from "lucide-react"
 import { mockMatches } from "@/data/mock-data"
 
 export function NextMatchSection() {
@@ -114,14 +114,6 @@ export function NextMatchSection() {
 
             {/* Action buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {nextMatch.tickets && (
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                  <a href={nextMatch.tickets} target="_blank" rel="noopener noreferrer">
-                    <Ticket className="mr-2 h-4 w-4" />
-                    Kup Bilety
-                  </a>
-                </Button>
-              )}
               {nextMatch.stream && (
                 <Button asChild size="lg" variant="outline">
                   <a href={nextMatch.stream} target="_blank" rel="noopener noreferrer">
@@ -130,7 +122,7 @@ export function NextMatchSection() {
                   </a>
                 </Button>
               )}
-              <Button asChild size="lg" variant="ghost">
+              <Button asChild size="lg" variant="ghost" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <a href="/schedule">
                   <Calendar className="mr-2 h-4 w-4" />
                   Pełny Terminarz

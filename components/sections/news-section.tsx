@@ -11,7 +11,7 @@ import Image from "next/image"
 
 export function NewsSection() {
   const featuredNews = mockNews.find((news) => news.featured)
-  const regularNews = mockNews.filter((news) => !news.featured).slice(0, 4)
+  const regularNews = mockNews.filter((news) => !news.featured).slice(0, 2)
 
   return (
     <section className="py-16 bg-gradient-to-b from-muted/30 to-background">
