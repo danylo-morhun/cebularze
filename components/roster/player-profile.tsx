@@ -71,8 +71,8 @@ export function PlayerProfile({ player }: PlayerProfileProps) {
                   {/* Name and position */}
                   <div className="space-y-3">
                     <div className="space-y-1">
-                      <h1 className="text-3xl font-bold text-foreground">
-                        {player.name} {player.surname}
+                      <h1 className="text-3xl font-bold text-gradient-primary">
+                        {player.name.toUpperCase()} {player.surname.toUpperCase()}
                       </h1>
                       {(player.isCaptain || player.isAssistantCaptain) && (
                         <div className="flex justify-center">
@@ -191,7 +191,7 @@ export function PlayerProfile({ player }: PlayerProfileProps) {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Target className="w-5 h-5 text-primary" />
-                  <span>Statystyki Sezonu 2024/25</span>
+                  <span>Statystyki Sezonu 2025/26</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>

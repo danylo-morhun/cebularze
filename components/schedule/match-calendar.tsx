@@ -40,128 +40,176 @@ export function MatchCalendar() {
   const selectedMatches = selectedDate ? getMatchesForDate(selectedDate) : []
 
   return (
-    <div className="grid lg:grid-cols-2 gap-8">
-      {/* Calendar */}
-      <Card>
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
-          <CardTitle className="flex items-center space-x-2">
-            <CalendarIcon className="w-5 h-5 text-primary" />
-            <span>Kalendarz Meczów</span>
-          </CardTitle>
-          <div className="flex items-center space-x-2">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <span className="text-sm font-medium min-w-[120px] text-center">
-              {currentMonth.toLocaleDateString("pl-PL", { month: "long", year: "numeric" })}
-            </span>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
-            >
-              <ChevronRight className="w-4 h-4" />
-            </Button>
+    <div className="space-y-8">
+      {/* Calendar Section */}
+      <Card className="shadow-sm">
+        <CardHeader className="pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between space-y-4 sm:space-y-0">
+            <CardTitle className="flex items-center space-x-3 text-xl">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <CalendarIcon className="w-6 h-6 text-primary" />
+              </div>
+              <span>Kalendarz Meczów</span>
+            </CardTitle>
+            <div className="flex items-center space-x-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1))}
+                className="h-9"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </Button>
+              <div className="px-4 py-2 bg-muted/50 rounded-lg min-w-[160px] text-center">
+                <span className="text-sm font-semibold">
+                  {currentMonth.toLocaleDateString("pl-PL", { month: "long", year: "numeric" })}
+                </span>
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1))}
+                className="h-9"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
         </CardHeader>
-        <CardContent>
-          <Calendar
-            mode="single"
-            selected={selectedDate}
-            onSelect={setSelectedDate}
-            month={currentMonth}
-            onMonthChange={setCurrentMonth}
-            modifiers={{
-              match: matchDates,
-            }}
-            modifiersStyles={{
-              match: {
-                backgroundColor: "hsl(var(--primary))",
-                color: "hsl(var(--primary-foreground))",
-                fontWeight: "bold",
-              },
-            }}
-            className="rounded-md border-0"
-          />
-          <div className="mt-4 text-sm text-muted-foreground">
+        <CardContent className="space-y-6">
+          <div className="flex justify-center">
+            <Calendar
+              mode="single"
+              selected={selectedDate}
+              onSelect={setSelectedDate}
+              month={currentMonth}
+              onMonthChange={setCurrentMonth}
+              modifiers={{
+                match: matchDates,
+              }}
+              modifiersStyles={{
+                match: {
+                  backgroundColor: "hsl(var(--primary))",
+                  color: "hsl(var(--primary-foreground))",
+                  fontWeight: "bold",
+                },
+              }}
+              className="rounded-lg shadow-sm"
+            />
+          </div>
+          
+          <div className="flex items-center justify-center space-x-4 text-sm">
             <div className="flex items-center space-x-2">
               <div className="w-3 h-3 bg-primary rounded-full" />
-              <span>Dni z meczami</span>
+              <span className="text-muted-foreground">Dni z meczami</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <div className="w-3 h-3 bg-muted-foreground/30 rounded-full" />
+              <span className="text-muted-foreground">Dni bez meczów</span>
             </div>
           </div>
         </CardContent>
       </Card>
 
-      {/* Selected date matches */}
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            {selectedDate
-              ? `Mecze - ${selectedDate.toLocaleDateString("pl-PL", {
-                  weekday: "long",
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}`
-              : "Wybierz datę"}
+      {/* Selected Date Matches */}
+      <Card className="shadow-sm">
+        <CardHeader className="pb-4">
+          <CardTitle className="flex items-center space-x-3 text-xl">
+            <div className="p-2 bg-blue-500/10 rounded-lg">
+              <CalendarIcon className="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              {selectedDate ? (
+                <div>
+                  <div className="text-lg font-semibold">
+                    {selectedDate.toLocaleDateString("pl-PL", {
+                      weekday: "long",
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </div>
+                  <div className="text-sm text-muted-foreground font-normal">
+                    {selectedMatches.length} mecz{selectedMatches.length !== 1 ? 'ów' : ''}
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div className="text-lg font-semibold">Wybierz datę</div>
+                  <div className="text-sm text-muted-foreground font-normal">
+                    Kliknij na datę w kalendarzu, aby zobaczyć mecze
+                  </div>
+                </div>
+              )}
+            </div>
           </CardTitle>
         </CardHeader>
         <CardContent>
           {selectedMatches.length > 0 ? (
             <div className="space-y-4">
               {selectedMatches.map((match) => (
-                <div key={match.id} className="p-4 bg-muted/30 rounded-lg space-y-3">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-2">
-                      <Badge variant="outline" className="text-xs">
-                        {match.competition}
-                      </Badge>
-                      <Badge variant={match.isHomeGame ? "default" : "secondary"} className="text-xs">
-                        {match.isHomeGame ? "Dom" : "Wyjazd"}
-                      </Badge>
-                    </div>
-                    <span className="text-sm font-medium">
-                      {new Date(match.date).toLocaleTimeString("pl-PL", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </span>
-                  </div>
-
-                  <div className="text-center">
-                    <div className="font-semibold text-lg">
-                      {match.homeTeam} vs {match.awayTeam}
-                    </div>
-                    {match.status === "finished" && match.homeScore !== undefined && match.awayScore !== undefined && (
-                      <div className="text-2xl font-bold text-primary mt-2">
-                        {match.homeScore} : {match.awayScore}
+                <Card key={match.id} className="bg-gradient-to-r from-muted/30 to-muted/10">
+                  <CardContent className="p-6">
+                    <div className="space-y-4">
+                      {/* Match Header */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          <Badge variant="outline" className="text-xs font-medium">
+                            {match.competition}
+                          </Badge>
+                          <Badge 
+                            variant={match.isHomeGame ? "default" : "secondary"} 
+                            className="text-xs font-medium"
+                          >
+                            {match.isHomeGame ? "Dom" : "Wyjazd"}
+                          </Badge>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-sm font-semibold text-foreground">
+                            {new Date(match.date).toLocaleTimeString("pl-PL", {
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            })}
+                          </div>
+                        </div>
                       </div>
-                    )}
-                  </div>
 
-                  <div className="text-center text-sm text-muted-foreground">{match.venue}</div>
+                      {/* Teams and Score */}
+                      <div className="text-center space-y-2">
+                        <div className="font-semibold text-xl text-foreground">
+                          {match.homeTeam} vs {match.awayTeam}
+                        </div>
+                        {match.status === "finished" && match.homeScore !== undefined && match.awayScore !== undefined && (
+                          <div className="text-3xl font-bold text-primary">
+                            {match.homeScore} : {match.awayScore}
+                          </div>
+                        )}
+                      </div>
 
-                  {match.status === "upcoming" && match.tickets && (
-                    <div className="text-center">
-                      <Button size="sm" asChild>
-                        <a href={match.tickets} target="_blank" rel="noopener noreferrer">
-                          Kup Bilety
-                        </a>
-                      </Button>
+                      {/* Venue */}
+                      <div className="text-center">
+                        <div className="inline-flex items-center space-x-2 px-3 py-1 bg-muted/50 rounded-full">
+                          <span className="text-sm text-muted-foreground">{match.venue}</span>
+                        </div>
+                      </div>
                     </div>
-                  )}
-                </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           ) : (
-            <div className="text-center py-8">
-              <CalendarIcon className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-              <p className="text-muted-foreground">
-                {selectedDate ? "Brak meczów w tym dniu" : "Wybierz datę, aby zobaczyć mecze"}
+            <div className="text-center py-12">
+              <div className="w-16 h-16 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CalendarIcon className="w-8 h-8 text-muted-foreground" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">
+                {selectedDate ? "Brak meczów w tym dniu" : "Wybierz datę"}
+              </h3>
+              <p className="text-muted-foreground max-w-sm mx-auto">
+                {selectedDate 
+                  ? "W wybranym dniu nie ma zaplanowanych meczów Cebularzy Kalisz"
+                  : "Kliknij na datę w kalendarzu powyżej, aby zobaczyć mecze w tym dniu"
+                }
               </p>
             </div>
           )}
