@@ -1,9 +1,7 @@
 import type { Metadata } from "next"
-import { PageHeader } from "@/components/ui/page-header"
+import { MainLayout } from "@/components/layout/main-layout"
 import { JuniorHeroSection } from "@/components/juniors/junior-hero-section"
-import { JuniorStatsSection } from "@/components/juniors/junior-stats-section"
 import { JuniorRosterPreview } from "@/components/juniors/junior-roster-preview"
-import { JuniorSchedulePreview } from "@/components/juniors/junior-schedule-preview"
 import { JuniorNewsSection } from "@/components/juniors/junior-news-section"
 import { DevelopmentProgram } from "@/components/juniors/development-program"
 
@@ -15,19 +13,11 @@ export const metadata: Metadata = {
 
 export default function JuniorsPage() {
   return (
-    <div className="min-h-screen">
-      <PageHeader
-        title="Szczypiorki Kalisz"
-        subtitle="Nasza drużyna juniorska"
-        description="Młodzi wojownicy na lodzie - przyszłość polskiego hokeja"
-      />
-
+    <MainLayout>
       <JuniorHeroSection />
-      <JuniorStatsSection />
       <DevelopmentProgram />
       <JuniorRosterPreview />
-      <JuniorSchedulePreview />
       <JuniorNewsSection />
-    </div>
+    </MainLayout>
   )
 }

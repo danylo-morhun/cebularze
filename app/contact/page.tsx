@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { PageHeader } from "@/components/ui/page-header"
+import { MainLayout } from "@/components/layout/main-layout"
 import {
   MapPin,
   Phone,
@@ -27,7 +28,7 @@ import {
 
 const contactInfo = {
   address: {
-    street: "ul. Sportowa 15",
+    street: "Prymasa Stefana Wyszyńskiego 38 / 29",
     city: "62-800 Kalisz",
     country: "Polska",
   },
@@ -43,26 +44,38 @@ const contactInfo = {
     weekdays: "16:00 - 22:00",
     weekends: "10:00 - 20:00",
   },
+  legalForm: "STOWARZYSZENIE",
+  registrationDate: "10 kwietnia 2024 r.",
 }
 
 const managementTeam = [
   {
-    name: "Marek Kowalski",
-    position: "Prezes Klubu",
+    name: "Jacek Henryk Jędrzejak",
+    position: "PREZES ZARZĄDU",
     email: "prezes@cebularze-kalisz.pl",
     phone: "+48 601 234 567",
+    since: "Od 10 kwietnia 2024 r.",
   },
   {
-    name: "Anna Nowak",
-    position: "Trener Główny",
-    email: "trener@cebularze-kalisz.pl",
+    name: "Łukasz Artur Baran",
+    position: "WICEPREZES ZARZĄDU",
+    email: "wiceprezes@cebularze-kalisz.pl",
     phone: "+48 602 345 678",
+    since: "Od 10 kwietnia 2024 r.",
   },
   {
-    name: "Piotr Wiśniewski",
-    position: "Menedżer Drużyny",
-    email: "menedzer@cebularze-kalisz.pl",
+    name: "Karol Henryk Owczarek",
+    position: "SKARBNIK",
+    email: "skarbnik@cebularze-kalisz.pl",
     phone: "+48 603 456 789",
+    since: "Od 10 kwietnia 2024 r.",
+  },
+  {
+    name: "Marcin Sebastian Całus",
+    position: "SEKRETARZ",
+    email: "sekretarz@cebularze-kalisz.pl",
+    phone: "+48 604 567 890",
+    since: "Od 10 kwietnia 2024 r.",
   },
 ]
 
@@ -110,7 +123,7 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <MainLayout>
       <PageHeader title="Kontakt" subtitle="Skontaktuj się z nami - jesteśmy tutaj, aby pomóc" />
 
       <div className="container mx-auto px-4 py-12">
@@ -251,7 +264,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 text-muted-foreground mt-0.5" />
                   <div>
-                    <p className="font-medium">Adres</p>
+                    <p className="font-medium">Adres siedziby</p>
                     <p className="text-muted-foreground">
                       {contactInfo.address.street}
                       <br />
@@ -293,40 +306,6 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Management Team */}
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Users className="h-5 w-5 text-primary" />
-                  Zarząd klubu
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {managementTeam.map((member, index) => (
-                  <motion.div
-                    key={member.name}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="border-l-2 border-primary/20 pl-4"
-                  >
-                    <h4 className="font-semibold">{member.name}</h4>
-                    <Badge variant="secondary" className="mb-2">
-                      {member.position}
-                    </Badge>
-                    <div className="space-y-1 text-sm text-muted-foreground">
-                      <a href={`mailto:${member.email}`} className="block hover:text-primary transition-colors">
-                        {member.email}
-                      </a>
-                      <a href={`tel:${member.phone}`} className="block hover:text-primary transition-colors">
-                        {member.phone}
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
               </CardContent>
             </Card>
 
@@ -390,28 +369,21 @@ export default function ContactPage() {
             <CardContent>
               <div className="aspect-video rounded-lg overflow-hidden bg-muted">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2441.123456789!2d18.0897!3d51.7687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDQ2JzA3LjMiTiAxOMKwMDUnMjIuOSJF!5e0!3m2!1spl!2spl!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000.867715984121!2d18.049557076946297!3d51.74825809307898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471acf588057d4a5%3A0xc32d899e36d16d0e!2sLodowisko%20Kalisz!5e1!3m2!1sen!2spl!4v1759066526984!5m2!1sen!2spl"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Lokalizacja Cebularze Kalisz"
+                  title="Lokalizacja Cebularze Kalisz - Lodowisko Kalisz"
                 />
               </div>
-              <div className="mt-4 p-4 bg-muted/50 rounded-lg">
-                <h4 className="font-semibold mb-2">Dojazd komunikacją publiczną:</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Autobus linii 12, 15 - przystanek "Sportowa"</li>
-                  <li>• Pociąg - Dworzec PKP Kalisz (15 min pieszo)</li>
-                  <li>• Parking dostępny na miejscu</li>
-                </ul>
-              </div>
+
             </CardContent>
           </Card>
         </motion.div>
       </div>
-    </div>
+    </MainLayout>
   )
 }
